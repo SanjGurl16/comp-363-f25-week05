@@ -1,5 +1,5 @@
 class NeedlemanWunsch:
-    def __init__(self, match=1, mismatch=1, gap=-1):
+    def __init__(self, match=1, mismatch=-1, gap=-1):
         self.match = match
         self.mismatch = mismatch
         self.gap = gap
@@ -60,16 +60,13 @@ class NeedlemanWunsch:
                 i -= 1
                 j -= 1
             elif tb[i][j] == "up":
-                # Character in s1 vs gap
                 aligned1.append(s1[i - 1])
                 aligned2.append("-")
                 gaps += 1
                 i -= 1
             else:  # "left"
-                # Gap in s1 vs character in s2
                 aligned1.append("-")
                 aligned2.append(s2[j - 1])
-                gaps += 1
                 j -= 1
 
         # Reverse the aligned strings because we traced back
