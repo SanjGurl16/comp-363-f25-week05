@@ -67,6 +67,7 @@ class NeedlemanWunsch:
             else:  # "left"
                 aligned1.append("-")
                 aligned2.append(s2[j - 1])
+                gaps += 1
                 j -= 1
 
         # Reverse the aligned strings because we traced back
@@ -91,7 +92,7 @@ if __name__ == "__main__":
         ["DELICIOUS", "RELIGIOUS"],
     ]
 
-    aligner = NeedlemanWunsch(match=1, mismatch=-3, gap=-1)
+    aligner = NeedlemanWunsch(match=1, mismatch=-1, gap=-2)
 
     for s1, s2 in tests:
         a1, a2, matches, mismatches, gaps = aligner.align(s1, s2)
