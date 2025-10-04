@@ -92,7 +92,7 @@ if __name__ == "__main__":
         ["DELICIOUS", "RELIGIOUS"],
     ]
 
-    aligner = NeedlemanWunsch(match=1, mismatch=-1, gap=-2)
+    aligner = NeedlemanWunsch(match=1, mismatch=-2, gap=-1)
 
     for s1, s2 in tests:
         a1, a2, matches, mismatches, gaps = aligner.align(s1, s2)
